@@ -11,14 +11,9 @@ end
 function next_generation_p2(this_gen; renew=6, new=8)
     next_gen = Dict{Int, Int}()
     for i in 0:new
-        if i == 8
-            next_gen[i] = this_gen[0]
-        elseif i == 6
-            next_gen[i] = this_gen[i+1] + this_gen[0]
-        else
-            next_gen[i] = this_gen[i+1]
-        end
+        next_gen[i] = this_gen[mod1(i+2, new+1)-1]
     end
+    next_gen[renew] += this_gen[0]
     return next_gen
 end
 
