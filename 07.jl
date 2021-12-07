@@ -11,15 +11,4 @@ function fuel_p2(pos, dest)
     return reduce(+, 1:abs(dest-pos))
 end
 
-function part_2(crabs)
-    last_res = sum(fuel_p2.(crabs, 0))
-    for dest in 1:1:maximum(crabs)
-        this_res = sum(fuel_p2.(crabs, dest))
-        if this_res > last_res
-            return last_res
-        end
-        last_res = this_res
-    end
-end
-
-part_2(input)
+minimum([sum(fuel_p2.(input, Int(floor(mean(input))))) sum(fuel_p2.(input, Int(ceil(mean(input)))))])
