@@ -8,7 +8,8 @@ sum(abs.(input.-median(input)))
 
 # part 2
 function fuel_p2(pos, dest)
-    return reduce(+, 1:abs(dest-pos))
+    diff = abs(pos-dest)
+    return (diff+1)*diff/2
 end
 
 minimum([sum(fuel_p2.(input, Int(floor(mean(input))))) sum(fuel_p2.(input, Int(ceil(mean(input)))))])
