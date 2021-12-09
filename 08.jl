@@ -11,3 +11,4 @@ end
 sum(count_p1.(input))
 
 # part 2
+p = Set.(input[1].patterns)
