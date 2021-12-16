@@ -121,4 +121,4 @@ function eval!(p::Packet)
     end
 end
 
-@btime eval!(p)
+eval!(p)
