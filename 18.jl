@@ -84,14 +84,4 @@ nums = SnailfishNumber.(readlines("18.input"))
 magnitude(reduce(+, nums))
 
 # part 2
-function max_magnitude(nums)
-    max_mag = 0
-    for s1 in nums
-        for s2 in nums
-            max_mag = maximum([max_mag, magnitude(s1 + s2)])
-        end
-    end
-    return max_mag
-end
-
-max_magnitude(nums)
+maximum([magnitude(s1+s2) for s1 in nums, s2 in nums])
